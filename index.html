@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Name – Freelance IT</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f5f1;--surface:#fff;--ink:#1c2430;--muted:#5d6775;--line:#dcdad2;--accent:#0b6e6e;--accent-ink:#fff;--amber:#e3a008;--amber-bg:#fff4d6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12171d;--surface:#1b222b;--ink:#eceff3;--muted:#9aa5b3;--line:#2d3743;--accent:#47c2bd;--accent-ink:#08201f;--amber:#f2b632;--amber-bg:#3a2f0e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12171d;--surface:#1b222b;--ink:#eceff3;--muted:#9aa5b3;--line:#2d3743;--accent:#47c2bd;--accent-ink:#08201f;--amber:#f2b632;--amber-bg:#3a2f0e;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Georgia,sans-serif;line-height:1.15;margin:0}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:16px;flex-wrap:wrap}
+header.top strong{font:700 1.1rem "Bricolage Grotesque",sans-serif}
+nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover{color:var(--ink)}
+/* current job banner */
+.now{background:var(--amber-bg);border:2px solid var(--amber);border-radius:12px;padding:20px 22px;margin:8px 0 0}
+.now .tag{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--amber);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.dot{animation:none}}
+.now h2{font-size:1.6rem;margin:8px 0 4px}
+.now p{margin:0 0 14px;color:var(--muted)}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--accent)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:10px;font-size:.92rem}
+.meta b{font-weight:600}
+.hero{padding:44px 0 28px}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);max-width:18ch}
+.hero p{max-width:56ch;color:var(--muted);font-size:1.1rem;margin:14px 0 0}
+section{padding:36px 0}
+section>h2{font-size:1.8rem;margin-bottom:6px}
+.sub{color:var(--muted);margin:0 0 22px;max-width:62ch}
+/* pricing */
+.rates{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.rate{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.rate h3{font-size:1.05rem}
+.rate .price{font:700 1.7rem "Bricolage Grotesque",sans-serif;margin:6px 0}
+.rate .price small{font:500 .85rem Figtree,sans-serif;color:var(--muted)}
+.rate p{margin:0;color:var(--muted);font-size:.93rem}
+.rules{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 20px;margin-top:18px}
+.rules li{padding:10px 0;border-bottom:1px solid var(--line)}
+.rules li:last-child{border:0}
+.rules ul{list-style:none;margin:0;padding:0}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;margin-top:18px;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));align-items:end}
+label{display:block;font-weight:600;font-size:.9rem;margin-bottom:4px}
+select,input{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+.out{grid-column:1/-1;font-size:1.05rem}
+.out b{font:700 1.6rem "Bricolage Grotesque",sans-serif}
+/* jobs */
+.jobs{display:grid;gap:12px}
+.job{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;grid-template-columns:1fr auto;gap:4px 16px}
+.job h3{font-size:1.1rem}
+.job .when{color:var(--muted);font-size:.9rem}
+.job p{grid-column:1/-1;margin:4px 0 0;color:var(--muted)}
+.job .calc-note{grid-column:1/-1;font-size:.9rem;border-top:1px dashed var(--line);margin-top:8px;padding-top:8px}
+.job .total{font:700 1.2rem "Bricolage Grotesque",sans-serif;text-align:right}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.filters button{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 14px;border-radius:20px;font:inherit;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.steps{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));counter-reset:s}
+.steps li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;counter-increment:s}
+.steps li::before{content:counter(s);display:inline-flex;width:26px;height:26px;align-items:center;justify-content:center;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:600;margin-bottom:8px}
+.steps b{display:block}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:12px 22px;border-radius:8px;font-weight:600;text-decoration:none}
+.contact{background:var(--ink);color:var(--bg);border-radius:12px;padding:28px;margin:20px 0 40px}
+.contact a{color:inherit;font-weight:600}
+footer{color:var(--muted);font-size:.85rem;padding-bottom:30px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><strong>Your Name · Freelance IT</strong>
+<nav><a href="#rates">Rates</a><a href="#done">Completed work</a><a href="#request">Request a job</a><a href="#contact">Contact</a></nav></header>
+
+<!-- CURRENT JOB BANNER (filled from CURRENT below) -->
+<div class="now" id="now" role="status"></div>
+
+<div class="hero">
+<h1>IT support and projects, priced in the open.</h1>
+<p>Networks, servers, cloud, websites and everyday support for small businesses. Every job below shows what was done and exactly how the price was worked out.</p>
+</div>
+
+<section id="rates">
+<h2>What I charge</h2>
+<p class="sub">Rates are in South African rand (ZAR). Replace these example figures with your own in the RATES list at the top of the script.</p>
+<div class="rates" id="rateGrid"></div>
+<div class="rules"><ul id="rules"></ul></div>
+
+<div class="calc" aria-label="Quick estimate">
+<div><label for="svc">Service</label><select id="svc"></select></div>
+<div><label for="hrs">Estimated hours</label><input id="hrs" type="number" min="0.5" step="0.5" value="2"></div>
+<div><label for="km">Travel (km, return)</label><input id="km" type="number" min="0" step="1" value="0"></div>
+<div class="out" id="est"></div>
+</div>
+</section>
+
+<section id="done">
+<h2>Completed work</h2>
+<p class="sub">Finished jobs with the hours, rate and extras that made up each price.</p>
+<div class="filters" id="filters"></div>
+<div class="jobs" id="jobs"></div>
+</section>
+
+<section id="request">
+<h2>Request a job or a better price</h2>
+<p class="sub">Already have a quote from another supplier? Send it with your request and I’ll see if I can beat it.</p>
+<ol class="steps">
+<li><b>Send your request</b>Describe what you need using the form.</li>
+<li><b>Attach other quotes</b>Upload any quotes you’ve received (PDF or photo).</li>
+<li><b>Get my counter-quote</b>I reply with a line-by-line price, usually within one business day.</li>
+<li><b>Approve and I start</b>Confirm the quote and the job goes on the schedule.</li>
+</ol>
+<a class="btn" id="reqBtn" href="#contact" target="_blank" rel="noopener">Open the request form</a>
+</section>
+
+<div class="contact" id="contact">
+<h2>Need something done?</h2>
+<p>Send a short description of the problem and I’ll reply with an estimate using the rates above.</p>
+<p><a href="mailto:you@example.com">you@example.com</a> · <a href="tel:+27000000000">+27 00 000 0000</a></p>
+</div>
+<footer>© Your Name. Prices exclude VAT unless stated.</footer>
+</div>
+
+<script>
+/* ============ EDIT THIS SECTION TO UPDATE THE SITE ============ */
+const CURRENCY = "R";
+const TRAVEL_RATE = 6.5; // per km
+// Paste your Google Form / Tally link here. If left empty, the button opens an email instead.
+const FORM_URL = "";
+const CONTACT_EMAIL = "you@example.com";
+
+// Standard rates: name, price, unit, hourly (number used by the estimator), description
+const RATES = [
+  {name:"Support & troubleshooting", price:450, unit:"per hour", hourly:450, note:"PCs, printers, email, Wi‑Fi, software problems. Billed in 30‑minute steps."},
+  {name:"Networks & servers", price:650, unit:"per hour", hourly:650, note:"Setup, cabling, firewalls, backups, Windows/Linux servers."},
+  {name:"Web & cloud projects", price:600, unit:"per hour", hourly:600, note:"Websites, Microsoft 365 / Google Workspace, migrations. Fixed quotes available."},
+  {name:"Monthly retainer", price:2500, unit:"per month", hourly:0, note:"Includes 6 hours of support. Extra hours at the support rate."}
+];
+
+// How every job is calculated
+const RULES = [
+  "Time is billed in 30‑minute blocks, rounded up. Minimum call‑out is 1 hour.",
+  "Travel is charged at R6.50 per km for the return trip; none within 15 km of the office.",
+  "Hardware and licences are charged at cost plus 10%, with supplier invoices shown on request.",
+  "Projects over R5 000 get a fixed quote with a 50% deposit; the balance is due on completion.",
+  "Urgent work outside 08:00–17:00 or on weekends is charged at 1.5× the hourly rate."
+];
+
+// The job you are working on now. Set to null to hide the banner.
+const CURRENT = {
+  title:"Office network upgrade – Dlamini Accounting",
+  summary:"Replacing the old router, adding two access points and moving the file server to a cloud backup.",
+  progress:60, started:"6 Oct 2026", due:"24 Oct 2026",
+  billing:"Fixed quote: R8 400 (12 h × R650 + R600 hardware at cost + 10%)"
+};
+
+// Finished jobs. category is used for the filter buttons.
+const DONE = [
+  {title:"Microsoft 365 migration", client:"Van Wyk Attorneys", date:"Sep 2026", category:"Cloud",
+   desc:"Moved 9 mailboxes and shared files from a local server to Microsoft 365, including MFA setup.",
+   calc:"10 h × R600 = R6 000 + licences at cost R1 980 + 10% = R2 178", total:8178},
+  {title:"Wi‑Fi dead zones fixed", client:"Greenfield Dental", date:"Aug 2026", category:"Networks",
+   desc:"Surveyed the building, installed three access points and a managed switch.",
+   calc:"4 h × R650 = R2 600 + hardware R3 200 + 10% = R3 520 + travel 30 km × R6.50 = R195", total:6315},
+  {title:"Laptop recovery and rebuild", client:"Private client", date:"Aug 2026", category:"Support",
+   desc:"Recovered files from a failing drive, installed an SSD, reinstalled Windows and software.",
+   calc:"3 h × R450 = R1 350 + SSD R850 + 10% = R935", total:2285},
+  {title:"Small business website", client:"Karoo Crafts", date:"Jul 2026", category:"Web",
+   desc:"Five‑page responsive website with contact form, hosting setup and email addresses.",
+   calc:"Fixed quote: 14 h × R600", total:8400}
+];
+/* ============================================================== */
+
+const fmt = n => CURRENCY + " " + Math.round(n).toLocaleString("en-ZA").replace(/,/g," ");
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// request button
+$("reqBtn").href = FORM_URL || ("mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Job request") + "&body=" + encodeURIComponent("What I need:\n\nOther supplier quote (price and name):\n\nPlease attach the quote file to this email."));
+if (!FORM_URL) $("reqBtn").removeAttribute("target");
+
+// banner
+if (CURRENT) {
+  $("now").innerHTML = `<span class="tag"><span class="dot"></span>Currently working on</span>
+  <h2>${esc(CURRENT.title)}</h2><p>${esc(CURRENT.summary)}</p>
+  <div class="bar" role="progressbar" aria-valuenow="${CURRENT.progress}" aria-valuemin="0" aria-valuemax="100"><i style="width:${CURRENT.progress}%"></i></div>
+  <div class="meta"><span><b>${CURRENT.progress}%</b> complete</span><span>Started ${esc(CURRENT.started)}</span><span>Due ${esc(CURRENT.due)}</span></div>
+  <div class="meta"><span><b>How it’s billed:</b> ${esc(CURRENT.billing)}</span></div>`;
+} else $("now").remove();
+
+// rates
+$("rateGrid").innerHTML = RATES.map(r => `<div class="rate"><h3>${esc(r.name)}</h3>
+  <div class="price">${fmt(r.price)} <small>${esc(r.unit)}</small></div><p>${esc(r.note)}</p></div>`).join("");
+$("rules").innerHTML = RULES.map(r => `<li>${esc(r)}</li>`).join("");
+
+// estimator
+const hourly = RATES.filter(r => r.hourly > 0);
+$("svc").innerHTML = hourly.map((r,i) => `<option value="${i}">${esc(r.name)} (${fmt(r.hourly)}/h)</option>`).join("");
+function estimate(){
+  const r = hourly[$("svc").value];
+  const hrs = Math.max(1, Math.ceil((parseFloat($("hrs").value)||0)*2)/2);
+  const km = Math.max(0, parseFloat($("km").value)||0);
+  const travel = km > 15 ? km*TRAVEL_RATE : 0;
+  const total = hrs*r.hourly + travel;
+  $("est").innerHTML = `Estimate: <b>${fmt(total)}</b> <span style="color:var(--muted)">(${hrs} h × ${fmt(r.hourly)}${travel?` + travel ${fmt(travel)}`:""}, excl. hardware and VAT)</span>`;
+}
+["svc","hrs","km"].forEach(id => $(id).addEventListener("input", estimate));
+estimate();
+
+// completed jobs with filter
+const cats = ["All", ...new Set(DONE.map(j => j.category))];
+let active = "All";
+function render(){
+  $("filters").innerHTML = cats.map(c => `<button aria-pressed="${c===active}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
+  $("jobs").innerHTML = DONE.filter(j => active==="All" || j.category===active).map(j => `<article class="job">
+    <div><h3>${esc(j.title)}</h3><span class="when">${esc(j.client)} · ${esc(j.date)} · ${esc(j.category)}</span></div>
+    <div class="total">${fmt(j.total)}</div><p>${esc(j.desc)}</p>
+    <div class="calc-note"><b>How it was calculated:</b> ${esc(j.calc)}</div></article>`).join("");
+  document.querySelectorAll(".filters button").forEach(b => b.onclick = () => { active = b.dataset.c; render(); });
+}
+render();
+</script>
+</body>
+</html>
